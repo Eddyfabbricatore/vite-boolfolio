@@ -1,43 +1,22 @@
 <script>
-  import axios from 'axios'
-  import { store } from './data/store'
-  import BlogComponent from './components/BlogComponent.vue'
-  import Navigator from './components/partials/Navigator.vue'
-
+  import Header from './components/partials/Header.vue'
   export default{
     name: 'App',
 
-    components:{
-      BlogComponent,
-      Navigator
-    },
-
-    data(){
-      return{
-        links: []
-      }
-    },
-
-    methods: {
-      getApi(endpoint){
-        axios.get(endpoint)
-          .then(results => {
-            store.projects = results.data.data;
-            this.links = results.data.links;
-        })
-      }
-    },
-
-    mounted(){
-      this.getApi(store.apiUrl + 'projects');
+    components: {
+      Header
     }
   }
+
 </script>
 
 <template>
-  <div class="container">
-    <BlogComponent />
-    <Navigator :links="links" @callApi="getApi" />
+  <Header />
+  
+  <div class="main-wrapper">
+    <div class="container">
+      <RouterView />
+    </div>
   </div>
 </template>
 

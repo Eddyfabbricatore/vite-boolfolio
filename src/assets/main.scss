@@ -7,10 +7,6 @@
   box-sizing: border-box;
 
   body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background-color: brown;
     color: white;
     font-family: 'Roboto', sans-serif;
@@ -23,6 +19,13 @@
       border: 1px solid white;
       border-radius: 10px;
       overflow: auto;
+    }
+
+    .main-wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
   }
 }

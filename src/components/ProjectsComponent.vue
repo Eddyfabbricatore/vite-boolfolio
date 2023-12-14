@@ -2,7 +2,7 @@
   import { store } from '../data/store'
 
   export default {
-    name: 'BlogComponent',
+    name: 'ProjectsComponent',
 
     data(){
       return{
@@ -17,7 +17,7 @@
 
   <ul>
     <li v-for="project in store.projects" :key="project.id">
-      <p>{{ project.name }}</p>
+      <router-link :to="{name: 'project-detail', params:{slug: project.slug}}">{{ project.name }}</router-link>      
     </li>
   </ul>
 </template>
@@ -25,5 +25,19 @@
 <style lang="scss" scoped>
 h1{
   margin-bottom: 20px;
+}
+
+a{
+  color: white;
+  text-decoration: none;
+
+  &.active{
+    font-weight: bold;
+    color: yellow;
+  }
+  
+  &:hover{
+    text-decoration: underline;
+  }
 }
 </style>
